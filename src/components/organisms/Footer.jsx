@@ -20,9 +20,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/' },
-    { icon: Instagram, href: 'https://www.instagram.com/' },
-    { icon: Twitter, href: 'https://x.com/' }
+    { icon: Facebook, href: 'https://www.facebook.com/', name: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/', name: 'Instagram' },
+    { icon: Twitter, href: 'https://x.com/', name: 'Twitter' }
   ];
 
   // Función para manejar el scroll suave a las secciones
@@ -64,7 +64,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-gray-900 text-white py-12 opacity-0">
+    <footer ref={footerRef} className="bg-gray-900 text-white py-12 opacity-0" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -74,7 +74,7 @@ const Footer = () => {
             <p className="text-gray-300 mb-6 max-w-md">
               Desde 1985, ofreciendo la mejor experiencia culinaria mediterránea con ingredientes frescos y técnicas tradicionales.
             </p>
-            <div className="flex space-x-4">
+            <nav className="flex space-x-4" role="navigation" aria-label="Redes sociales">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -82,6 +82,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-orange-400 social-icon-hover"
                   target='_blank'
                   rel="noopener noreferrer"
+                  aria-label={`Síguenos en ${social.name}`}
                   style={{
                     animationDelay: `${(index + 1) * 200}ms`
                   }}
@@ -89,11 +90,11 @@ const Footer = () => {
                   <social.icon className="h-6 w-6" />
                 </a>
               ))}
-            </div>
+            </nav>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+          <nav role="navigation" aria-labelledby="quick-links-heading">
+            <h3 id="quick-links-heading" className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={link.href}>
@@ -112,10 +113,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Servicios</h3>
+          <nav role="navigation" aria-labelledby="services-heading">
+            <h3 id="services-heading" className="text-lg font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={service.label}>
@@ -133,7 +134,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">

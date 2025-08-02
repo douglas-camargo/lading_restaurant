@@ -2,6 +2,16 @@ import Button from '../atoms/Button';
 import Buttonreserve from '../atoms/Buttonreserve';
 
 const HeroSection = () => {
+  const handleMenuScroll = () => {
+    const menuSection = document.querySelector('#menu');
+    if (menuSection) {
+      menuSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center">
       <div 
@@ -16,7 +26,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
           Bienvenidos a<br />
-          <span className="text-orange-400">Bella Vista</span>
+          <span className="text-white">Bella Vista</span>
         </h1>
         <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
           Una experiencia culinaria excepcional donde la tradición se encuentra con la innovación
@@ -25,7 +35,7 @@ const HeroSection = () => {
           <Buttonreserve variant="primary">
             Reservar Mesa
           </Buttonreserve>
-          <Button variant="secondary" onClick={() => window.location.href = '#menu'}>
+          <Button variant="secondary" onClick={handleMenuScroll}>
             Ver Menú
           </Button>
         </div>

@@ -1,40 +1,23 @@
 /**
- * Funcion para verificar si se esta en un dispositivo movil, tablet o una computadora,
- * si se esta en un dispositivo movil o tablet devolvera un array de informacion sobre
- * el dispositvo de lo contrario si se en una computadora devolvera null
+ * Utilidades para el manejo de WhatsApp y detección de dispositivos
  */
 
-export const Dispositivo = {
-  Android() {
-    return navigator.userAgent.match(/Android/i);
-  },
-  BlackBerry() {
-    return navigator.userAgent.match(/BlackBerry/i);
-  },
-  iOS() {
-    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-  },
-  Opera() {
-    return navigator.userAgent.match(/Opera Mini/i);
-  },
-  Windows() {
-    return navigator.userAgent.match(/IEMobile/i);
-  },
-  evaluarDispositivo() {
-    return (Dispositivo.Android() || Dispositivo.BlackBerry() || Dispositivo.iOS() || Dispositivo.Opera() || Dispositivo.Windows());
-  }
+// Detector de dispositivos móviles simplificado
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 };
 
+/**
+ * Abre WhatsApp con un número y mensaje específico
+ * @param {string} numero - Número de teléfono con código de país
+ * @param {string} mensaje - Mensaje predefinido
+ */
 export const handleWhatsappClick = (numero, mensaje) => {
-    const versionPc = 'https://web.whatsapp.com/send?';
-    const versionMobile = 'https://api.whatsapp.com/send?';
+  const baseUrl = isMobileDevice() 
+    ? 'https://api.whatsapp.com/send?' 
+    : 'https://web.whatsapp.com/send?';
   
-    // Determina la URL base según el dispositivo
-    const baseUrl = Dispositivo.evaluarDispositivo() === null ? versionPc : versionMobile;
-    
-    // Construye la URL completa
-    const url = `${baseUrl}phone=${numero}&text=${mensaje}`;
+  const url = `${baseUrl}phone=${numero}&text=${mensaje}`;
   
-    // Abre la URL en una nueva pestaña
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
+  window.open(url, '_blank', 'noopener,noreferrer');
+};

@@ -93,48 +93,50 @@ const Footer = () => {
             </nav>
           </div>
 
-          <nav role="navigation" aria-labelledby="quick-links-heading">
-            <h3 id="quick-links-heading" className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleSmoothScroll(e, link.href)}
-                    className="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 inline-block group relative link-hover-effect"
-                    style={{
-                      animationDelay: `${(index + 1) * 150}ms`
-                    }}
-                  >
-                    {link.label}
-                    {/* Línea animada debajo del enlace */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-8 md:col-span-2">
+            <nav role="navigation" aria-labelledby="quick-links-heading">
+              <h3 id="quick-links-heading" className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+              <ul className="space-y-2">
+                {quickLinks.map((link, index) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleSmoothScroll(e, link.href)}
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 inline-block group relative link-hover-effect"
+                      style={{
+                        animationDelay: `${(index + 1) * 150}ms`
+                      }}
+                    >
+                      {link.label}
+                      {/* Línea animada debajo del enlace */}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <nav role="navigation" aria-labelledby="services-heading">
-            <h3 id="services-heading" className="text-lg font-semibold mb-4">Servicios</h3>
-            <ul className="space-y-2">
-              {services.map((service, index) => (
-                <li key={service.label}>
-                  <button
-                    onClick={handleServiceClick}
-                    className="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 inline-block group relative link-hover-effect cursor-pointer"
-                    style={{
-                      animationDelay: `${(index + 1) * 150}ms`
-                    }}
-                  >
-                    {service.label}
-                    {/* Línea animada debajo del enlace */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav role="navigation" aria-labelledby="services-heading">
+              <h3 id="services-heading" className="text-lg font-semibold mb-4">Servicios</h3>
+              <ul className="space-y-2">
+                {services.map((service, index) => (
+                  <li key={service.label}>
+                    <button
+                      onClick={handleServiceClick}
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 inline-block group relative link-hover-effect cursor-pointer"
+                      style={{
+                        animationDelay: `${(index + 1) * 150}ms`
+                      }}
+                    >
+                      {service.label}
+                      {/* Línea animada debajo del enlace */}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">

@@ -16,11 +16,21 @@ const ContactForm = () => {
           </ContactInfo>
 
           <ContactInfo icon={Phone} title="Teléfono">
-            <button onClick={() => handleWhatsappClick('+584241232755', 'Hola!%20quisiera%20reservar%20una%20mesa.')}>+58 424-123-27-55</button>
+            <button 
+              onClick={() => handleWhatsappClick('+584241232755', 'Hola!%20quisiera%20reservar%20una%20mesa.')}
+              className="text-orange-600 hover:text-orange-700 transition-all duration-300 transform hover:scale-105 hover:translate-x-1 font-medium"
+            >
+              +58 424-123-27-55
+            </button>
           </ContactInfo>
 
           <ContactInfo icon={Mail} title="Email">
-            <p>info@bellavista.com</p>
+            <a 
+              href="mailto:info@bellavista.com"
+              className="text-orange-600 hover:text-orange-700 transition-all duration-300 transform hover:scale-105 hover:translate-x-1 font-medium"
+            >
+              info@bellavista.com
+            </a>
           </ContactInfo>
 
           <ContactInfo icon={Clock} title="Horarios">
@@ -36,9 +46,6 @@ const ContactForm = () => {
           <Buttonreserve variant="primary" className="w-full">
             Hacer Reservación
           </Buttonreserve>
-          {/* <Button variant="primary" className="w-full">
-            Hacer Reservación
-          </Button> */}
         </div>
       </div>
 

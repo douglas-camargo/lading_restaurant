@@ -2,6 +2,16 @@ import Button from '../atoms/Button';
 import Buttonreserve from '../atoms/Buttonreserve';
 
 const HeroSection = () => {
+  const handleMenuScroll = () => {
+    const menuSection = document.querySelector('#menu');
+    if (menuSection) {
+      menuSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center">
       <div 
@@ -25,7 +35,7 @@ const HeroSection = () => {
           <Buttonreserve variant="primary">
             Reservar Mesa
           </Buttonreserve>
-          <Button variant="secondary" onClick={() => window.location.href = '#menu'}>
+          <Button variant="secondary" onClick={handleMenuScroll}>
             Ver Menú
           </Button>
         </div>

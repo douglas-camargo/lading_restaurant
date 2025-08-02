@@ -9,10 +9,10 @@ const Logo = ({ size = 'md', showText = true, className = '' }) => {
   };
 
   return (
-    <div className={`flex items-center ${className}`}>
-      <ChefHat className={`${sizes[size].icon} text-orange-600`} />
+    <div className={`flex items-center group cursor-pointer transition-all duration-300 hover:scale-105 ${className}`}>
+      <ChefHat className={`${sizes[size].icon} text-orange-600 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110`} />
       {showText && (
-        <span className={`ml-2 ${sizes[size].text} font-bold text-gray-900`}>
+        <span className={`ml-2 ${sizes[size].text} font-bold text-gray-900 transition-all duration-300 group-hover:text-orange-600`}>
           Bella Vista
         </span>
       )}

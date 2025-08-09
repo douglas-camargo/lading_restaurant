@@ -1,70 +1,17 @@
-import React, { useEffect, useRef } from 'react';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import React from 'react';
 import Logo from '../atoms/Logo';
+import { useFooter } from '../../hooks/useFooter';
+import { quickLinks, services, socialLinks, footerContent } from '../../data/footerData';
 
 const Footer = () => {
-  const footerRef = useRef(null);
-
-  const quickLinks = [
-    { href: '#inicio', label: 'Inicio', id: 'inicio' },
-    { href: '#acerca', label: 'Acerca', id: 'acerca' },
-    { href: '#menu', label: 'Menú', id: 'menu' },
-    { href: '#contacto', label: 'Contacto', id: 'contacto' }
-  ];
-
-  const services = [
-    { label: 'Reservaciones' },
-    { label: 'Eventos Privados' },
-    { label: 'Catering' },
-    { label: 'Delivery' }
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/', name: 'Facebook' },
-    { icon: Instagram, href: 'https://www.instagram.com/', name: 'Instagram' },
-    { icon: Twitter, href: 'https://x.com/', name: 'Twitter' }
-  ];
-
-  // Función para manejar el scroll suave a las secciones
-  const handleSmoothScroll = (e, href) => {
-    e.preventDefault();
-    
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
-  // Función para manejar clicks en servicios (sin navegación)
-  const handleServiceClick = (e) => {
-    e.preventDefault();
-  };
-
-  // Efecto para animar la entrada del footer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in-up');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const {
+    footerRef,
+    handleSmoothScroll,
+    handleServiceClick
+  } = useFooter();
 
   return (
-    <footer ref={footerRef} className="bg-gray-900 text-white py-12 opacity-0" role="contentinfo">
+    <footer ref={footerRef} className="bg-gray-900 text-white py-12 opacity-0 translate-y-8 m-0" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -72,7 +19,7 @@ const Footer = () => {
               <Logo size="md" textColor="text-white" />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Desde 1985, ofreciendo la mejor experiencia culinaria mediterránea con ingredientes frescos y técnicas tradicionales.
+              {footerContent.description}
             </p>
             <nav className="flex space-x-4" role="navigation" aria-label="Redes sociales">
               {socialLinks.map((social, index) => (
@@ -141,7 +88,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            &copy; 2025 Bella Vista Restaurant. Todos los derechos reservados.
+            {footerContent.copyright}
           </p>
         </div>
       </div>

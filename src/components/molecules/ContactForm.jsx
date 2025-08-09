@@ -4,6 +4,7 @@ import ContactInfo from '../atoms/ContactInfo';
 import GoogleMap from './GoogleMap';
 import ButtonReserve from '../atoms/Buttonreserve';
 import { useWhatsApp } from '../../hooks/useWhatsApp';
+import { contactInfo } from '../../data/contactData';
 
 const ContactForm = () => {
   const { handleWhatsappClick } = useWhatsApp();
@@ -12,35 +13,35 @@ const ContactForm = () => {
     <div className="grid lg:grid-cols-2 gap-12">
       <address className="not-italic">
         <div className="space-y-8">
-          <ContactInfo icon={MapPin} title="Dirección">
-            <p>Av. Principal 123, Centro Histórico<br />Ciudad, Estado 12345</p>
+          <ContactInfo icon={MapPin} title={contactInfo.address.title}>
+            <p>{contactInfo.address.content}</p>
           </ContactInfo>
 
-          <ContactInfo icon={Phone} title="Teléfono">
+          <ContactInfo icon={Phone} title={contactInfo.phone.title}>
             <button 
-              onClick={() => handleWhatsappClick('+584241232755', 'Hola!%20quisiera%20reservar%20una%20mesa.')}
+              onClick={() => handleWhatsappClick(contactInfo.phone.content, contactInfo.phone.whatsappMessage)}
               className="text-orange-600 hover:text-orange-700 transition-all duration-300 transform hover:scale-105 hover:translate-x-1 font-medium"
-              aria-label="Llamar o contactar por WhatsApp al +58 424-123-27-55"
+              aria-label={`Llamar o contactar por WhatsApp al ${contactInfo.phone.content}`}
             >
-              +58 424-123-27-55
+              {contactInfo.phone.content}
             </button>
           </ContactInfo>
 
-          <ContactInfo icon={Mail} title="Email">
+          <ContactInfo icon={Mail} title={contactInfo.email.title}>
             <a 
-              href="mailto:info@bellavista.com"
+              href={`mailto:${contactInfo.email.content}`}
               className="text-orange-600 hover:text-orange-700 transition-all duration-300 transform hover:scale-105 hover:translate-x-1 font-medium"
-              aria-label="Enviar email a info@bellavista.com"
+              aria-label={`Enviar email a ${contactInfo.email.content}`}
             >
-              info@bellavista.com
+              {contactInfo.email.content}
             </a>
           </ContactInfo>
 
-          <ContactInfo icon={Clock} title="Horarios">
+          <ContactInfo icon={Clock} title={contactInfo.hours.title}>
             <div className="space-y-1">
-              <p>Lunes - Jueves: 12:00 PM - 10:00 PM</p>
-              <p>Viernes - Sábado: 12:00 PM - 11:00 PM</p>
-              <p>Domingo: 12:00 PM - 9:00 PM</p>
+              {contactInfo.hours.content.map((hour, index) => (
+                <p key={index}>{hour}</p>
+              ))}
             </div>
           </ContactInfo>
         </div>

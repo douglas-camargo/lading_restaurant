@@ -1,10 +1,11 @@
 import React from 'react';
 import { useWhatsApp } from '../../hooks/useWhatsApp';
+import { contactInfo } from '../../data/contactData';
 import Button from './Button';
 
 const ButtonReserve = ({
-  numero = '+584241232755',
-  mensaje = 'Hola!%20quisiera%20reservar%20una%20mesa.',
+  numero = contactInfo.phone.content,
+  mensaje = contactInfo.phone.whatsappMessage,
   variant = 'primary',
   size = 'md',
   className = '',

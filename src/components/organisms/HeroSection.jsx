@@ -33,7 +33,7 @@ const HeroSection = () => {
           </p>
         </header>
         
-        <nav className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center" role="navigation" aria-label="Acciones principales">
+        <nav className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:justify-center max-w-[250px] sm:max-w-full mx-auto" role="navigation" aria-label="Acciones principales">
           <ButtonReserve variant="primary" aria-label="Reservar mesa en Bella Vista">
             Reservar Mesa
           </ButtonReserve>

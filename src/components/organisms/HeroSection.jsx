@@ -1,5 +1,5 @@
 import Button from '../atoms/Button';
-import ButtonReserve from '../atoms/ButtonReserve';
+import ButtonReserve from '../atoms/Buttonreserve';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 const HeroSection = () => {

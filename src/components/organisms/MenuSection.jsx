@@ -2,20 +2,12 @@ import React from 'react';
 import MenuCategory from '../molecules/MenuCategory';
 import Button from '../atoms/Button';
 import { featuredMenuItems, menuData } from '../../data/menuData';
+import { useMenuToggle } from '../../hooks/useMenuToggle';
 
 const MenuSection = () => {
-  const [showFullMenu, setShowFullMenu] = React.useState(false);
+  const { showFullMenu, handleToggleMenu } = useMenuToggle();
   
   const currentMenuItems = showFullMenu ? menuData : featuredMenuItems;
-
-  const handleToggleMenu = () => {
-    setShowFullMenu(!showFullMenu);
-    // Scroll suave en lugar de window.location.href
-    const menuSection = document.querySelector('#menu');
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="menu" className="py-16 sm:py-24" role="region" aria-labelledby="menu-heading">
@@ -43,7 +35,7 @@ const MenuSection = () => {
           <Button 
             variant="primary" 
             onClick={handleToggleMenu}
-            aria-label={showFullMenu ? 'Ver menú destacado' : 'Ver menú completo completo'}
+            aria-label={showFullMenu ? 'Ver menú destacado' : 'Ver menú completo'}
           >
             {showFullMenu ? 'Ver Menú Destacado' : 'Ver Menú Completo'}
           </Button>

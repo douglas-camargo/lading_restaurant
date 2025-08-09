@@ -1,15 +1,12 @@
 import Button from '../atoms/Button';
-import Buttonreserve from '../atoms/Buttonreserve';
+import ButtonReserve from '../atoms/ButtonReserve';
+import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 const HeroSection = () => {
+  const { scrollToSection } = useScrollToSection();
+
   const handleMenuScroll = () => {
-    const menuSection = document.querySelector('#menu');
-    if (menuSection) {
-      menuSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+    scrollToSection('#menu');
   };
 
   return (
@@ -37,9 +34,9 @@ const HeroSection = () => {
         </header>
         
         <nav className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center" role="navigation" aria-label="Acciones principales">
-          <Buttonreserve variant="primary" aria-label="Reservar mesa en Bella Vista">
+          <ButtonReserve variant="primary" aria-label="Reservar mesa en Bella Vista">
             Reservar Mesa
-          </Buttonreserve>
+          </ButtonReserve>
           <Button variant="secondary" onClick={handleMenuScroll} aria-label="Ver menú del restaurante">
             Ver Menú
           </Button>

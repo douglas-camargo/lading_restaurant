@@ -10,4 +10,4 @@ if (rootElement) {
       <App />
     </StrictMode>
   );
-}
+};

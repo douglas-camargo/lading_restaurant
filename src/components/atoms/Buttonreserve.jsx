@@ -1,8 +1,8 @@
 import React from 'react';
-import { handleWhatsappClick } from '../../../utils/FormatUtil';
+import { useWhatsApp } from '../../hooks/useWhatsApp';
 import Button from './Button';
 
-const Buttonreserve = ({
+const ButtonReserve = ({
   numero = '+584241232755',
   mensaje = 'Hola!%20quisiera%20reservar%20una%20mesa.',
   variant = 'primary',
@@ -11,6 +11,8 @@ const Buttonreserve = ({
   children,
   ...props
 }) => {
+  const { handleWhatsappClick } = useWhatsApp();
+
   return (
     <Button
       variant={variant}
@@ -24,4 +26,4 @@ const Buttonreserve = ({
   );
 };
 
-export default Buttonreserve;
+export default ButtonReserve;

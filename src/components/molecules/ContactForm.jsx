@@ -2,10 +2,11 @@ import React from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import ContactInfo from '../atoms/ContactInfo';
 import GoogleMap from './GoogleMap';
-import Buttonreserve from '../atoms/Buttonreserve';
-import { handleWhatsappClick } from '../../../utils/FormatUtil';
+import ButtonReserve from '../atoms/ButtonReserve';
+import { useWhatsApp } from '../../hooks/useWhatsApp';
 
 const ContactForm = () => {
+  const { handleWhatsappClick } = useWhatsApp();
 
   return (
     <div className="grid lg:grid-cols-2 gap-12">
@@ -45,13 +46,13 @@ const ContactForm = () => {
         </div>
 
         <div className="mt-12">
-          <Buttonreserve 
+          <ButtonReserve 
             variant="primary" 
             className="w-full"
             aria-label="Hacer reservación en Bella Vista"
           >
             Hacer Reservación
-          </Buttonreserve>
+          </ButtonReserve>
         </div>
       </address>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import ContactInfo from '../atoms/ContactInfo';
 import GoogleMap from './GoogleMap';
-import ButtonReserve from '../atoms/ButtonReserve';
+import ButtonReserve from '../atoms/Buttonreserve';
 import { useWhatsApp } from '../../hooks/useWhatsApp';
 
 const ContactForm = () => {

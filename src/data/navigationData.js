@@ -1,9 +1,9 @@
 export const navigationLinks = [
-  { href: '#inicio', label: 'Inicio' },
-  { href: '#acerca', label: 'Acerca' },
+  { href: '#home', label: 'Inicio' },
+  { href: '#about', label: 'Acerca' },
   { href: '#menu', label: 'Menú' },
-  { href: '#galeria', label: 'Galería' },
-  { href: '#contacto', label: 'Contacto' }
+  { href: '#gallery', label: 'Galería' },
+  { href: '#contact', label: 'Contacto' }
 ];
 
 export const logoContent = {

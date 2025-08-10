@@ -1,3 +1,6 @@
+import React, { useRef } from 'react';
+import { useLazyImage } from '../../utils/imageOptimization';
+
 const MenuItem = ({ name, price, description, image }) => {
   const itemContainer = "flex gap-4";
   const imageContainer = "flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden";
@@ -7,14 +10,21 @@ const MenuItem = ({ name, price, description, image }) => {
   const itemName = "text-lg font-semibold text-gray-900";
   const itemPrice = "text-lg font-bold text-orange-600";
   const itemDescription = "text-gray-600";
+  
+  const { observeImage } = useLazyImage();
+  const imageRef = useRef(null);
 
   return (
     <article className={itemContainer}>
       <figure className={imageContainer}>
         <img 
-          src={image} 
+          ref={(el) => {
+            imageRef.current = el;
+            if (el) observeImage(el);
+          }}
+          src={image}
           alt={`${name} - ${description}`}
-          className={imageStyle}
+          className={`lazy ${imageStyle}`}
           loading="lazy"
           width="96"
           height="96"

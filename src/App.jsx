@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen bg-white transition-opacity duration-1000 m-0 p-0 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`bg-white transition-opacity duration-1000 app-container ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <Navigation />
       <HeroSection />
       <AboutSection />

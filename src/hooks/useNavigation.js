@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 
 export const useNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('inicio');
+  const [activeSection, setActiveSection] = useState('home');
 
   const navItems = [
-    { href: '#inicio', label: 'Inicio', id: 'inicio' },
-    { href: '#acerca', label: 'Acerca', id: 'acerca' },
+    { href: '#home', label: 'Inicio', id: 'home' },
+    { href: '#about', label: 'Acerca', id: 'about' },
     { href: '#menu', label: 'Menú', id: 'menu' },
-    { href: '#galeria', label: 'Galería', id: 'galeria' },
-    { href: '#contacto', label: 'Contacto', id: 'contacto' }
+    { href: '#gallery', label: 'Galería', id: 'gallery' },
+    { href: '#contact', label: 'Contacto', id: 'contact' }
   ];
 
   const toggleMenu = () => {

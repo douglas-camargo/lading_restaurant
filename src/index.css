@@ -2,15 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Lazy Loading Styles */
+.lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+}
+
+.lazy.loaded {
+  opacity: 1;
+}
+
+/* Placeholder para imágenes mientras cargan */
+.lazy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  z-index: -1;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 /* Reset de márgenes y padding para eliminar espacios extra */
 @layer base {
-  html, body {
+  html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
   }
   
   body {
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
   }
 }
@@ -101,6 +136,133 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
+  
+  /* Prevenir scroll horizontal y vertical extra */
+  .no-horizontal-scroll {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+}
+
+/* Asegurar que no haya elementos que se salgan del viewport */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevenir scroll extra en el contenedor principal */
+.app-container {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Prevenir scroll vertical extra */
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Forzar un solo scroll */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #64748b #f1f5f9;
+}
+
+/* Scrollbar personalizado que esté por encima de todo */
+html::-webkit-scrollbar {
+  width: 8px;
+  z-index: 10000;
+}
+
+html::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  z-index: 10000;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+  z-index: 10001;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Compensar la navegación fija */
+.hero-section {
+  padding-top: 4rem; /* 64px para compensar la navegación fija */
+}
+
+/* Asegurar que el scroll no se meta debajo del header */
+html {
+  scroll-padding-top: 4rem; /* Compensar el header fijo al hacer scroll */
+}
+
+/* Forzar que el scroll siempre esté visible por encima del header */
+body {
+  padding-top: 4rem; /* Espacio para el header fijo */
+}
+
+/* Prevenir scroll extra causado por elementos fijos */
+nav[class*="fixed"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Asegurar que el contenido principal no cause scroll extra */
+main, .app-container > * {
+  overflow: visible;
+}
+
+/* Eliminar cualquier scroll extra excepto en html */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Solo permitir scroll en html */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #64748b #f1f5f9;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  display: block !important;
+  z-index: 10000;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+  min-height: 50px;
+  z-index: 10001;
+}
+
+html::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  z-index: 10000;
 }
 
 /* Animaciones personalizadas */

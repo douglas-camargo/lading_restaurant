@@ -39,7 +39,7 @@ export const useHero = () => {
   }, []);
 
   // Constantes de clases para secciones principales
-  const heroSection = "relative h-screen flex items-center justify-center";
+  const heroSection = "relative min-h-screen flex items-center justify-center hero-section";
   const backgroundImage = "absolute inset-0 bg-cover bg-center bg-no-repeat animate-scale-in";
   const overlay = "absolute inset-0 bg-black/50";
   const contentContainer = "relative z-10 text-center text-white px-4 sm:px-6 lg:px-8";

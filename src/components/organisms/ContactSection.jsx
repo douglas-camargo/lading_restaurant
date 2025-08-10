@@ -11,7 +11,7 @@ const ContactSection = () => {
   return (
     <section 
       ref={sectionRef}
-      id="contacto" 
+      id="contact"
       className="py-16 sm:py-24 opacity-0 translate-y-8" 
       role="region" 
       aria-labelledby="contact-heading"

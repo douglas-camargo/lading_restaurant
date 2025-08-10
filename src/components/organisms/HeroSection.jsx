@@ -21,7 +21,7 @@ const HeroSection = () => {
   } = useHero();
 
   return (
-    <section id="inicio" className={heroSection} role="banner" aria-label="Página principal">
+    <section id="home" className={heroSection} role="banner" aria-label="Página principal">
       <div 
         className={backgroundImage}
         style={{

@@ -3,15 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/chef-hat.svg" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/chef-hat.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
     <title>Bella Vista - Restaurante Italiano | La Mejor Cocina Mediterránea en la Ciudad</title>
     <meta name="description" content="Descubre Bella Vista, el mejor restaurante italiano con auténtica cocina mediterránea. Reserva tu mesa online y disfruta de platos tradicionales, ambiente acogedor y servicio excepcional. ¡Tu experiencia gastronómica italiana te espera!" />
-    <meta name="keywords" content="restaurante italiano, cocina mediterránea, pizza italiana, pasta italiana, reserva restaurante, bella vista, comida italiana, restaurante romántico, cena italiana, almuerzo italiano, delivery italiano, catering italiano" />
+    <meta name="keywords" content="restaurante italiano, cocina mediterránea, pizza italiana, pasta italiana, reserva restaurante, bella vista, comida italiana, restaurante romántico, cena italiana, almuerzo italiano, delivery italiano, catering italiano, restaurante venezolano, comida mediterránea" />
     <meta name="author" content="Bella Vista Restaurant" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="VE" />
+    <meta name="geo.placename" content="Ciudad" />
+    <meta name="geo.position" content="10.4806;-66.9036" />
+    <meta name="ICBM" content="10.4806, -66.9036" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="google-site-verification" content="your-verification-code" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://restaurant-black-alpha.vercel.app/" />
@@ -40,7 +52,8 @@
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "Bella Vista",
-      "description": "Restaurante italiano con la mejor cocina mediterránea",
+      "alternateName": "Bella Vista Restaurant",
+      "description": "Restaurante italiano con la mejor cocina mediterránea en la ciudad. Especialistas en pizza, pasta y platos tradicionales italianos.",
       "url": "https://restaurant-black-alpha.vercel.app/",
       "telephone": "+58-424-123-27-55",
       "email": "info@bellavista.com",
@@ -63,7 +76,7 @@
         "Su 12:00-21:00"
       ],
       "priceRange": "$$",
-      "servesCuisine": ["Italian", "Mediterranean"],
+      "servesCuisine": ["Italian", "Mediterranean", "Pizza", "Pasta"],
       "hasMenu": "https://restaurant-black-alpha.vercel.app/#menu",
       "acceptsReservations": true,
       "image": "https://restaurant-black-alpha.vercel.app/restaurant-image.jpg",
@@ -71,13 +84,81 @@
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "reviewCount": "1250"
-      }
+      },
+      "sameAs": [
+        "https://www.facebook.com/bellavistarestaurant",
+        "https://www.instagram.com/bellavistarestaurant",
+        "https://twitter.com/bellavistarest"
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Ciudad"
+      },
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+      "currenciesAccepted": "VES, USD",
+      "deliveryAvailable": true,
+      "takeoutAvailable": true,
+      "wheelchairAccessible": true
+    }
+    </script>
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Bella Vista Restaurant",
+      "image": "https://restaurant-black-alpha.vercel.app/restaurant-image.jpg",
+      "description": "Restaurante italiano con auténtica cocina mediterránea",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Principal 123, Centro Histórico",
+        "addressLocality": "Ciudad",
+        "addressRegion": "Estado",
+        "postalCode": "12345",
+        "addressCountry": "VE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "10.4806",
+        "longitude": "-66.9036"
+      },
+      "url": "https://restaurant-black-alpha.vercel.app/",
+      "telephone": "+58-424-123-27-55",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "12:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "12:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "12:00",
+          "closes": "21:00"
+        }
+      ]
     }
     </script>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.jsx" as="script" />
+    <link rel="preload" href="/src/index.css" as="style" />
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#ea580c" />
@@ -90,8 +171,20 @@
     
     <!-- Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    </script>
   </head>
-  <body class="scroll-smooth">
+  <body class="scroll-smooth overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

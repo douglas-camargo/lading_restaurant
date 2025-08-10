@@ -3,7 +3,6 @@ import GalleryGrid from '../molecules/GalleryGrid';
 import { useGallery } from '../../hooks/useGallery';
 import { usePageLoadAnimation } from '../../hooks/usePageLoadAnimation';
 import { useIntersectionAnimation } from '../../hooks/useIntersectionAnimation';
-import { sectionContent } from '../../data/contactData';
 
 const GallerySection = () => {
   const { galleryImages } = useGallery();
@@ -13,7 +12,7 @@ const GallerySection = () => {
   return (
     <section 
       ref={sectionRef}
-      id="galeria" 
+      id="gallery"
       className="py-16 sm:py-24 bg-gray-50 opacity-0 translate-y-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

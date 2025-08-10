@@ -1,10 +1,10 @@
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 export const quickLinks = [
-  { href: '#inicio', label: 'Inicio', id: 'inicio' },
-  { href: '#acerca', label: 'Acerca', id: 'acerca' },
+  { href: '#home', label: 'Inicio', id: 'home' },
+  { href: '#about', label: 'Acerca', id: 'about' },
   { href: '#menu', label: 'Menú', id: 'menu' },
-  { href: '#contacto', label: 'Contacto', id: 'contacto' }
+  { href: '#contact', label: 'Contacto', id: 'contact' }
 ];
 
 export const services = [

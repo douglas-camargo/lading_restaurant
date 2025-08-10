@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import StatCard from '../atoms/StatCard';
 import { usePageLoadAnimation } from '../../hooks/usePageLoadAnimation';
 import { useAboutData } from '../../hooks/useAboutData';
 import { useMultipleIntersectionAnimation } from '../../hooks/useIntersectionAnimation';
 import { aboutStats, aboutContent } from '../../data/aboutData';
+import { useLazyImage } from '../../utils/imageOptimization';
 
 const AboutSection = () => {
   const sectionRef = usePageLoadAnimation();
@@ -13,6 +14,9 @@ const AboutSection = () => {
     imageRef, 
     statsRef
   } = useAboutData();
+  
+  const { observeImage } = useLazyImage();
+  const optimizedImageRef = useRef(null);
 
   // Configurar animaciones de intersección
   useMultipleIntersectionAnimation([
@@ -25,7 +29,7 @@ const AboutSection = () => {
   return (
     <section 
       ref={sectionRef}
-      id="acerca" 
+      id="about"
       className="py-16 sm:py-24 bg-gray-50 opacity-0 translate-y-8" 
       role="region" 
       aria-labelledby="about-heading"
@@ -77,11 +81,17 @@ const AboutSection = () => {
           
           <figure className="mt-12 lg:mt-0">
             <img 
-              ref={imageRef}
+              ref={(el) => {
+                imageRef.current = el;
+                optimizedImageRef.current = el;
+                if (el) observeImage(el);
+              }}
               src={aboutContent.image.src}
               alt={aboutContent.image.alt}
-              className="rounded-lg shadow-xl w-full h-96 object-cover opacity-0 translate-x-8"
+              className="lazy rounded-lg shadow-xl w-full h-96 object-cover opacity-0 translate-x-8"
               loading="lazy"
+              width="800"
+              height="384"
             />
             <figcaption className="sr-only">{aboutContent.image.caption}</figcaption>
           </figure>

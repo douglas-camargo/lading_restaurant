@@ -46,10 +46,10 @@ const ContactForm = () => {
           </ContactInfo>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 w-full flex justify-center">
           <ButtonReserve 
             variant="primary" 
-            className="w-full"
+            className="lg:w-full sm:w-1/2 w-full"
             aria-label="Hacer reservación en Bella Vista"
           >
             Hacer Reservación

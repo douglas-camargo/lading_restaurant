@@ -14,14 +14,14 @@ const Footer = () => {
     <footer ref={footerRef} className="bg-gray-900 text-white py-12 opacity-0 translate-y-8" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
-            <div className="flex items-center mb-4">
+          <div className="md:col-span-2 text-center md:text-left">
+            <div className="flex items-center mb-4 justify-center md:justify-start">
               <Logo size="md" textColor="text-white" />
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="text-gray-300 mb-6 max-w-md mx-auto md:mx-0">
               {footerContent.description}
             </p>
-            <nav className="flex space-x-4" role="navigation" aria-label="Redes sociales">
+            <nav className="flex space-x-4 justify-center md:justify-start" role="navigation" aria-label="Redes sociales">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-2 gap-8 md:col-span-2">
-            <nav role="navigation" aria-labelledby="quick-links-heading">
+            <nav role="navigation" aria-labelledby="quick-links-heading" className="text-center md:text-left">
               <h3 id="quick-links-heading" className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
               <ul className="space-y-2">
                 {quickLinks.map((link, index) => (
@@ -63,7 +63,7 @@ const Footer = () => {
               </ul>
             </nav>
 
-            <nav role="navigation" aria-labelledby="services-heading">
+            <nav role="navigation" aria-labelledby="services-heading" className="text-center md:text-left">
               <h3 id="services-heading" className="text-lg font-semibold mb-4">Servicios</h3>
               <ul className="space-y-2">
                 {services.map((service, index) => (

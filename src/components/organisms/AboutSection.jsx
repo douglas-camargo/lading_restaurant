@@ -35,7 +35,7 @@ const AboutSection = () => {
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
           <article>
             <header>
               <h2 
@@ -64,7 +64,7 @@ const AboutSection = () => {
             
             <aside 
               ref={statsRef}
-              className="grid grid-cols-3 gap-8 opacity-0 translate-y-8" 
+              className="stats-grid opacity-0 translate-y-8" 
               role="complementary" 
               aria-label="Estadísticas del restaurante"
             >
